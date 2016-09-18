@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> The Fretboard  </title>
+    <script type="text/javascript" src="caman.full.js"></script>
+    <style type="text/css">
+        html { 
+        background: url(kandinsky.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+        #awesome1,#awesome2,#awesome3,#awesome4,#myArpeggioType,#myArpeggioRoot,#myScaleType,#myTonic,#myScaleRoot
+        {
+            background: #222 url(/images/alert-overlay.png) repeat-x;
+            display: inline-block;
+            padding: 5px 10px 6px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            line-height: 1;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 0 1px 3px #999;
+            -webkit-box-shadow: 0 1px 3px #999;
+            text-shadow: 0 -1px 1px #222;
+            border-bottom: 1px solid #222;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        h1 {color:white;
+            font-size:18px;}
+        h2 {color:black;
+            font-size:18px;}  
+        b {color:Red;
+            font-size:18px;}      
+              
+    </style>
+</head>
+
+
+<body>
+<h1>Key:<select id="myTonic" onchange="resetGlobals()">
+            <option value="A">A</option>
+            <option value="As">A#</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="Cs">C#</option>
+            <option value="D">D</option>
+            <option value="Ds">D#</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="Fs">F#</option>
+            <option value="G">G</option>
+            <option value="Gs">G#</option>
+</select></h1>
+<h1>Scale: 
+    <select id="myScaleType" onchange="resetGlobals()">
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+            <option value="dorian">Dorian</option>
+            <option value="phrygian">Phrygian</option>
+            <option value="lydian">Lydian</option>
+            <option value="mixolydian">Mixolydian</option>
+            <option value="locrian">Locrian</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+    Scale Root:<select id="myScaleRoot" onchange="resetGlobals()">
+            <option value="sixth">6th String</option>
+            <option value="fifth">5th String</option>
+            <option value="all">All Strings</option>
+    </select></h1> 
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="awesome1" type="button" onclick="showScale()" onclick="resetGlobals()">Show Scale</button><button id="awesome4" type="button" onclick="showScale()">Next Shape</button></p>
+<h1>Arpeggio: <select id="myArpeggioType" onchange="resetGlobals()">
+            <option value="maj">maj</option>
+            <option value="min">min</option>
+            <option value="dim">dim</option>
+            <option value="aug">aug</option>
+            <option value="6">6</option>
+            <option value="m6">m6</option>
+            <option value="maj7">maj7</option>
+            <option value="m7">m7</option>
+            <option value="7">7</option>
+            <option value="m7b5">m7b5</option>
+            <option value="dim7">dim7</option>
+            <option value="sus4">sus4</option>
+            <option value="7sus4">7sus4</option>
+            <option value="maj9">maj9</option>
+            <option value="m9">m9</option>
+            <option value="9">9</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+    Arpeggio Root:<select id="myArpeggioRoot" onchange="resetGlobals()">
+            <option value="sixth">6th String</option>
+            <option value="fifth">5th String</option>
+            <option value="fourth">4th String</option>
+            <option value="all">All Strings</option>
+    </select></h1> 
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="awesome2" type="button" onclick="showArpeggio()" onclick="resetGlobals()">Show Arpeggio</button><button id="awesome3" type="button" onclick="showArpeggio()">Next Shape</button></p>
+
+<p><img id="scream" src="Note on fretboard.jpg" alt="The Scream" width="1" height="1"/></p>
+
+<canvas id="myCanvas" width="710" height="250" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You are currently viewing a <b id='textToChange'>---</b> shape.</h2>
+
+
+<script type="text/javascript" src="myScript.js">
+</script>
+    
+
+</body>
+</html>
